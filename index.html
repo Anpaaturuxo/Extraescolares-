@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ANPA Aturuxo - Extraescolares 2026-2027</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f5f5f5;color:#111}
+header{background:#000;color:#fff;padding:20px;text-align:center}
+.wrap{max-width:1400px;margin:auto;padding:20px}
+.section,.card{background:#fff;border-radius:10px;padding:18px;margin-bottom:20px}
+h2{background:#c40000;color:#fff;padding:10px;border-radius:8px}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #ddd;padding:10px;vertical-align:top}
+th{background:#111;color:#fff}
+.activity{background:#fafafa;border-left:4px solid #c40000;padding:6px;margin:4px 0;cursor:pointer}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.card{border-left:5px solid #c40000}
+#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65)}
+#box{background:#fff;max-width:720px;margin:8vh auto;padding:20px;border-radius:10px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.btn{background:#c40000;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;display:inline-block}
+</style></head><body>
+<header><h1>ANPA ATURUXO</h1><p>Actividades Extraescolares 2026-2027</p></header>
+<div class="wrap">
+
+<div class="section">
+<h2>Educación Infantil</h2>
+<table>
+<tr><th>Hora</th><th>L</th><th>M</th><th>X</th><th>J</th><th>V</th></tr>
+<tr><td>16:00</td>
+<td><div class="activity" onclick="showInfo('Xogos')">🤸 Xogos e movemento</div></td>
+<td><div class="activity" onclick="showInfo('Judo')">🥋 Judo</div></td>
+<td><div class="activity" onclick="showInfo('Futbol')">⚽ Fútbol</div></td>
+<td><div class="activity" onclick="showInfo('Judo')">🥋 Judo</div></td>
+<td><div class="activity" onclick="showInfo('Xogos')">🤸 Xogos e movemento</div></td>
+</tr></table></div>
+
+<div class="section"><h2>Educación Primaria</h2>
+<table>
+<tr><th>Hora</th><th>L</th><th>M</th><th>X</th><th>J</th><th>V</th></tr>
+<tr><td>16:00</td>
+<td><div class="activity" onclick="showInfo('Patinaxe')">⛸️ Patinaxe 1º-3ºP</div><div class="activity" onclick="showInfo('Comediantes')">🎭 Comediantes 4º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Judo')">🥋 Judo 4ºI-1ºP</div><div class="activity" onclick="showInfo('Baloncesto')">🏀 Baloncesto 1º-3ºP / 4º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Futbol')">⚽ Fútbol 4ºI-1ºP</div><div class="activity" onclick="showInfo('Danza')">💃 Danza 1º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Judo')">🥋 Judo 4ºI-1ºP</div><div class="activity" onclick="showInfo('Comediantes')">🎭 Comediantes 4º-6ºP</div><div class="activity" onclick="showInfo('Baloncesto')">🏀 Baloncesto 1º-3ºP / 4º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Comic')">📖 Cómic 2º-6ºP</div><div class="activity" onclick="showInfo('Patinaxe')">⛸️ Patinaxe 1º-3ºP</div></td>
+</tr>
+<tr><td>17:00</td>
+<td><div class="activity" onclick="showInfo('Patinaxe')">⛸️ Patinaxe 4º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Judo')">🥋 Judo 2º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Futbol')">⚽ Fútbol 2º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Judo')">🥋 Judo 2º-6ºP</div></td>
+<td><div class="activity" onclick="showInfo('Patinaxe')">⛸️ Patinaxe 4º-6ºP</div></td>
+</tr></table></div>
+
+<div class="info">
+<div class="card"><h3>🏷️ Beca comedor</h3><p>Las familias beneficiarias de beca comedor disponen de un 50% de descuento en las actividades organizadas por la Federación.</p></div>
+<div class="card"><h3>📅 Inicio de actividades</h3><p>Octubre de 2026.</p></div>
+</div></div>
+
+<div id="modal" onclick="this.style.display='none'"><div id="box" onclick="event.stopPropagation()">
+<h2 id="t"></h2>
+<div class="cols">
+<div><b>Cuota</b><p id="c"></p><b>Gastos extra</b><p id="g"></p></div>
+<div><b>Cupo mínimo</b><p id="m"></p><a id="b" class="btn" target="_blank">Inscribirse</a></div>
+</div>
+<p id="n"></p>
+</div></div>
+
+<script>
+const d={
+Xogos:["10 €/mes","Seguro 5 € (primer mes)","10 alumnos","https://www.fedapascoruna.org/inscripciones",""],
+Patinaxe:["10 €/mes","Seguro 5 € (primer mes)","10 alumnos","https://www.fedapascoruna.org/inscripciones",""],
+Baloncesto:["10 €/mes","Seguro 5 € (primer mes)","10 alumnos","https://www.fedapascoruna.org/inscripciones",""],
+Comediantes:["10 €/mes","Seguro 5 € (primer mes)","10 alumnos","https://www.fedapascoruna.org/inscripciones",""],
+Judo:["63 €/trimestre","59 € trámite federativo + carnet","10 alumnos","https://edukajudo.com/centros/rosalia-de-castro/",""],
+Futbol:["20 €/trimestre","Inscripción por email ANPA","10 alumnos","mailto:apaturuxo@gmail.com",""],
+Danza:["17 €/mes","Sin gastos extra","10 alumnos","mailto:artestudioformacion@gmail.com",""],
+Comic:["20 €/mes","Sin gastos extra","6 alumnos","mailto:apaturuxo@gmail.com","Horario: 16:00 a 17:30"]
+};
+function showInfo(x){
+t.textContent=x;c.textContent=d[x][0];g.textContent=d[x][1];m.textContent=d[x][2];
+b.href=d[x][3];n.textContent=d[x][4];
+modal.style.display='block';
+}
+</script>
+</body></html>
