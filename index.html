@@ -23,6 +23,102 @@ th{background:#111;color:#fff}
 
 header{position:relative;background:linear-gradient(180deg,#111,#000)!important;border-bottom:4px solid #c40000;padding:26px 30px}
 .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:auto}.header-center{text-align:center;flex:1}.logo{width:90px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.4));transition:.25s}.logo:hover{transform:scale(1.05)}.section,.card,table{box-shadow:0 4px 12px rgba(0,0,0,.08)}.activity{border-radius:8px;transition:.2s}.activity:hover{background:#fff1f1;transform:translateY(-2px)}@media(max-width:700px){.header-inner{flex-direction:column;gap:10px}.logo{width:70px}}
+
+/* ===== VISTA MÓVIL ===== */
+@media (max-width:700px){
+  body{font-size:15px}
+  header{padding:18px 14px 20px}
+  header h1{font-size:26px;margin:8px 0 4px}
+  header p{font-size:14px;margin:0}
+  .wrap{padding:12px 10px}
+  .section,.card{padding:12px;margin-bottom:14px;border-radius:12px}
+  h2{font-size:19px;margin:0 0 12px;padding:9px 11px}
+
+  /* La tabla se transforma en bloques legibles en móvil */
+  table,thead,tbody,tr,th,td{
+    display:block;width:100%;box-sizing:border-box
+  }
+  table{border:0}
+  table tr:first-child{display:none}
+
+  table tr:not(:first-child){
+    margin:0 0 12px;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.06)
+  }
+
+  table tr:not(:first-child) td{
+    border:0;
+    border-bottom:1px solid #eee;
+    padding:10px;
+    min-height:20px
+  }
+  table tr:not(:first-child) td:last-child{border-bottom:0}
+
+  table tr:not(:first-child) td:first-child{
+    background:#111;
+    color:#fff;
+    font-weight:700;
+    font-size:16px;
+    text-align:center;
+    padding:9px
+  }
+
+  table tr:not(:first-child) td:nth-child(2)::before{content:"LUNES"}
+  table tr:not(:first-child) td:nth-child(3)::before{content:"MARTES"}
+  table tr:not(:first-child) td:nth-child(4)::before{content:"MIÉRCOLES"}
+  table tr:not(:first-child) td:nth-child(5)::before{content:"JUEVES"}
+  table tr:not(:first-child) td:nth-child(6)::before{content:"VIERNES"}
+
+  table tr:not(:first-child) td:not(:first-child)::before{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.5px;
+    color:#c40000;
+    margin-bottom:6px
+  }
+
+  .activity{
+    margin:6px 0;
+    padding:10px;
+    border-radius:8px
+  }
+
+  .info{grid-template-columns:1fr;gap:12px}
+
+  #modal{
+    padding:12px;
+    box-sizing:border-box;
+    overflow:auto
+  }
+  #box{
+    width:auto;
+    max-width:none;
+    margin:7vh 0 0;
+    padding:16px;
+    border-radius:14px
+  }
+  #box h2{margin-bottom:14px}
+  .cols{grid-template-columns:1fr;gap:10px}
+  .btn{
+    width:100%;
+    box-sizing:border-box;
+    text-align:center
+  }
+}
+
+@media (max-width:390px){
+  header h1{font-size:23px}
+  header img{width:88px !important}
+  .wrap{padding:9px 7px}
+  .section,.card{padding:10px}
+  .activity{font-size:14px}
+}
+
 </style></head><body>
 <header><div class="header-inner"><img class="logo" src="Logo.png"/><div class="header-center"><h1>ANPA ATURUXO</h1><p>Actividades Extraescolares 2026-2027</p></div><img class="logo" src="Logo.png"/></div></header>
 <div class="wrap">
